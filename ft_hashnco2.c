@@ -6,7 +6,7 @@
 /*   By: ggeri <ggeri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/07 15:53:19 by ggeri             #+#    #+#             */
-/*   Updated: 2020/09/14 17:21:03 by ggeri            ###   ########.fr       */
+/*   Updated: 2020/09/15 20:21:54 by ggeri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,11 @@ int		ft_check_star(va_list ap, t_arg *r)
 {
 	if (*(r->fmt + 1) == '*')
 	{
+		if (r->point == 0)
+			r->num = va_arg(ap, int);
+		else
+			r->wiedth = va_arg(ap, int);
 		r->fmt++;
-		r->num = va_arg(ap, int);
 	}
 	return (r->num);
 }

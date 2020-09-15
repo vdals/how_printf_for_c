@@ -6,7 +6,7 @@
 /*   By: ggeri <ggeri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 16:24:12 by ggeri             #+#    #+#             */
-/*   Updated: 2020/09/14 17:49:39 by ggeri            ###   ########.fr       */
+/*   Updated: 2020/09/14 19:11:45 by ggeri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int			ft_print_hash(t_arg *r)
 	int		sum;
 
 	sum = 0;
-	if (*(r->fmt + 1) == 'o' && r->hsh == 1 && r->ull != 0)
+	if (*(r->fmt + 1) == 'o' && r->hsh == 1)
 		sum = ft_putchar('0');
 	else if (*(r->fmt + 1) == 'x' && r->hsh == 1 && r->ull != 0)
 		sum = ft_putstr("0x");

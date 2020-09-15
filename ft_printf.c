@@ -6,7 +6,7 @@
 /*   By: ggeri <ggeri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/28 13:36:55 by ggeri             #+#    #+#             */
-/*   Updated: 2020/09/14 17:20:48 by ggeri            ###   ########.fr       */
+/*   Updated: 2020/09/15 20:24:38 by ggeri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ int			ft_printf(const char *fmt1, ...)
 	if (!fmt1)
 		return (-1);
 	if (fmt1[0] == '%' && fmt1[1] == '\0')
-		return (1);
+		return (0);
 	r = (t_arg*)malloc(sizeof(t_arg));
 	ptr = ft_strdup(fmt1);
 	r->fmt = ptr;

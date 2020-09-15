@@ -6,7 +6,7 @@
 /*   By: ggeri <ggeri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/28 12:43:41 by ggeri             #+#    #+#             */
-/*   Updated: 2020/09/14 17:20:17 by ggeri            ###   ########.fr       */
+/*   Updated: 2020/09/15 18:38:44 by ggeri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,11 +112,10 @@ int		ft_check_star(va_list ap, t_arg *r);// чекаем звездочку дл
 int		ft_size_print(t_arg *r, int length);// тут мы форматируем вывод при смещениях из-за пробелов и нулей на экране направо
 int		ft_size_print2(t_arg *r, int length);// то же чт ои выше функция направо
 int		ft_size_print_minus(t_arg *r, int length);// для рисования форматирования слева
-int 	ft_len(long i);
 
 void	ft_check_wiedth(t_arg *r);
 int		ft_putstr2(const char *str, int size);
-
+int		ft_putstr3(const char *str, int size);
 int		ft_shorter_f(t_arg *r, va_list ap, int ret); // разработка для флотов, в стадии тестирования
 int		shorter_f(t_arg *r, int sum);
 char	*ft_ltoa(int length, t_arg *r);

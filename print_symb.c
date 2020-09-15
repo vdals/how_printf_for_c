@@ -6,7 +6,7 @@
 /*   By: ggeri <ggeri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/28 14:20:08 by ggeri             #+#    #+#             */
-/*   Updated: 2020/09/12 18:46:59 by ggeri            ###   ########.fr       */
+/*   Updated: 2020/09/15 19:24:39 by ggeri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 static int		ft_prints_symb_help(t_arg *r, va_list ap, int sum)
 {
 	r->c = va_arg(ap, int);
+	if (r->c == 0 && r->num == 0)
+		return (ft_putchar(0));
+	// if (r->num == 0 && r->point == 1)
+	// 	return (ft_putchar(r->c));
 	if (r->wiedth > 0)
 		r->num = r->wiedth;
 	if (r->num != 0 && r->minus == 0)
@@ -35,15 +39,32 @@ static int		ft_print_str(t_arg *r)
 		r->fmt++;
 		return (ft_putchar(' '));
 	}
-	if ((r->num != 0) && (r->s != NULL) && r->minus == 0)
-			sum += ft_size_print(r, r->wiedth);
+	if (r->num != 0 && ft_strlen(r->s) == 0 && r->minus == 0)
+	{
+		r->fmt++;
+		return (ft_size_print(r, 0));
+	}
+	else if ((r->num != 0) && (r->s != NULL) && r->minus == 0)
+		sum += ft_size_print(r, r->wiedth);
 	else if (r->num != 0 && r->s == NULL && r->minus == 0)
-			sum += ft_size_print(r, r->wiedth);
-	if (r->s == NULL)
-		sum += ft_putstr2("(null)", r->wiedth);
+		sum += ft_size_print(r, r->wiedth);
+	if (ft_strlen(r->s) == 0 && r->num != 0)
+		sum += 0;
+	else if (r->s == NULL)
+		sum += ft_putstr3("(null)", r->wiedth);
+	else if (ft_strlen(r->s) == 0 && r->num == 0)
+	{
+		r->fmt++;
+		return (sum);
+	}
 	else
-		sum += ft_putstr2(r->s, r->wiedth);
-	if ((r->num != 0) && (r->s != NULL) && r->minus == 1)
+		sum += ft_putstr3(r->s, r->wiedth);
+	if (r->num != 0 && ft_strlen(r->s) == 0 && r->minus == 1)
+	{
+		r->fmt++;
+		return (ft_size_print(r, 0));
+	}
+	else if ((r->num != 0) && (r->s != NULL) && r->minus == 1)
 		sum += ft_size_print_minus(r, r->wiedth);
 	else if (r->num != 0 && r->s == NULL && r->minus == 1)
 		sum += ft_size_print_minus(r, r->wiedth);

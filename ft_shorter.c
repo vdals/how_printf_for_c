@@ -6,7 +6,7 @@
 /*   By: ggeri <ggeri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 14:02:05 by ggeri             #+#    #+#             */
-/*   Updated: 2020/09/14 18:35:22 by ggeri            ###   ########.fr       */
+/*   Updated: 2020/09/15 20:30:08 by ggeri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ static int	h1_u_i(t_arg *r, int base, int sum)
 	while (r->num - sum + 2 > 0 && (*(r->fmt + 1) == 'x') && \
 	r->num == r->wiedth)
 		sum += ft_putchar('0');
-	if (r->num != 0 && (*(r->fmt + 1) == 'o') && \
+	if (r->num != 0 && *(r->fmt + 1) == 'o' && \
 	r->wiedth == 0)
 	{
 		r->zero = 0;
 		sum += ft_size_print(r, sum);
-		if (r->hsh == 1 && *(r->fmt + 1) == 'o')
+		if (r->hsh == 1)
 			sum += ft_putchar(' ');
 		sum += ft_print_hash(r);
 	}

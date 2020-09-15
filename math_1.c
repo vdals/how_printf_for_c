@@ -12,18 +12,6 @@
 
 #include "ftprintf.h"
 
-int 		ft_len(long i)
-{
-	int		count;
-	count = (i == 0) ? 1 : 0;
-	while (i != 0)
-	{
-		count++;
-		i /= 10;
-	}
-	return count;
-}
-
 int			ft_pow(int x, unsigned int y)
 {
 	int		i;

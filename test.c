@@ -6,7 +6,7 @@
 /*   By: ggeri <ggeri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/28 13:58:47 by ggeri             #+#    #+#             */
-/*   Updated: 2020/09/14 18:26:47 by ggeri            ###   ########.fr       */
+/*   Updated: 2020/09/15 20:24:54 by ggeri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,12 @@ int			main(void)
 
 	int		check1 = 2147483647;
 
-	check = printf("%-.2s is a string\n", "");
-	check = ft_printf("%-.2s is a string", "");
+	check = printf("@moulitest: %.10d\n", -42);
+	printf("%i\n", check);
+	check = ft_printf("@moulitest: %.10d\n", -42);
+	printf("%i\n", check);
 
-
-	/*printf(MAGENTA "\n --- TEST#01 --- \n\n" RESET);
+	printf(MAGENTA "\n --- TEST#01 --- \n\n" RESET);
 	check = printf(CYAN"expected:hello %% %#1% %5 c, %  010  s, %lx, %030p %2% %10s.\n"RESET, 'f', "hello", ptr0, ptr0, NULL);
 	printf("check:%i\n", check);
 	check = ft_printf(CYAN"reality :hello %% %#1% %5 c, %  010  s, %lx, %030p %2% %10s.\n"RESET, 'f', "hello", ptr0, ptr0, NULL);
@@ -216,17 +217,50 @@ int			main(void)
 	printf("check:%i\n", check);
 	check = ft_printf("@moulitest:%#5.X_%#5.0X_\n", 1, 0);
 	printf(RED"check:%i\n"RESET, check);
-	check = printf("@moulitest:%#5.o_%5.0o_\n", 0, 0);
+	check = printf("@moulitest:%.d_%.0d_\n", 0, 0);
 	printf("check:%i\n", check);
-	check = ft_printf("@moulitest:%#5.o_%5.0o_\n", 0, 0);
+	check = ft_printf("@moulitest:%.d_%.0d_\n", 0, 0);
 	printf(RED"check:%i\n"RESET, check);
 	check = printf("_%.o_%.0o_\n", 0, 0);
 	printf("check:%i\n", check);
- 	check = ft_printf("_%.o_%.0o_\n", 0, 0);
+	check = ft_printf("_%.o_%.0o_\n", 0, 0);
 	printf(RED"check:%i\n"RESET, check);
 
 	ft_printf("_%-10.5o_\n", 2500);
-	printf("_%-10.5o_\n", 2500);*/
+	printf("_%-10.5o_\n", 2500);
+
+	check = printf("%.2s is a string\n", "this");
+	printf("check:%i\n", check);
+	check = ft_printf("%.2s is a string\n", "this");
+	printf(RED"check:%i\n"RESET, check);
+	check = printf("%.2s is a string\n", "");
+	printf("check:%i\n", check);
+	check = ft_printf("%.2s is a string\n", "");
+	printf(RED"check:%i\n"RESET, check);
+	check = printf("%5.2s is a string\n", "");
+	printf("check:%i\n", check);
+	check = ft_printf("%5.2s is a string\n", "");
+	printf(RED"check:%i\n"RESET, check);
+	check = printf("%-.2s is a string\n", "");
+	printf("check:%i\n", check);
+	check = ft_printf("%-.2s is a string\n", "");
+	printf(RED"check:%i\n"RESET, check);
+	check = printf("%-5.2s is a string\n", "");
+	printf("check:%i\n", check);
+	check = ft_printf("%-5.2s is a string\n", "");
+	printf(RED"check:%i\n"RESET, check);
+	printf("\n\n\n\n\n\n");
+
+	check = printf("%.2c", NULL);
+	printf("check:%i\n", check);
+	check = ft_printf("%.2c", NULL);
+	printf(RED"check:%i\n"RESET, check);
+	printf("\n\n\n\n\n\n");
+	check = printf("\0");
+	printf("check:%i\n", check);
+	check = ft_printf("\0");
+	printf(RED"check:%i\n"RESET, check);
+
 
 	// manage minimum field-width (smth with printf("%*d", 6, number)); ask someone
 	// add precisin "int.int"

@@ -6,7 +6,7 @@
 /*   By: ggeri <ggeri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/12 15:46:29 by ggeri             #+#    #+#             */
-/*   Updated: 2020/09/12 15:50:47 by ggeri            ###   ########.fr       */
+/*   Updated: 2020/09/15 18:50:41 by ggeri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,28 @@ int				ft_putstr2(const char *str, int size)
 	ptr = str;
 	while (size > 0)
 	{
+		if (*ptr == '%')
+			ptr++;
+		write(1, ptr++, 1);
+		sum++;
+		size--;
+	}
+	return (sum);
+}
+
+int				ft_putstr3(const char *str, int size)
+{
+	const char	*ptr;
+	int			sum;
+
+	sum = 0;
+	if (*str == '%')
+		str--;
+	ptr = str;
+	while (size > 0)
+	{
+		if (*ptr == '%')
+			ptr++;
 		write(1, ptr++, 1);
 		sum++;
 		size--;
