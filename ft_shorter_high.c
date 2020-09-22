@@ -6,7 +6,7 @@
 /*   By: ggeri <ggeri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 14:02:05 by ggeri             #+#    #+#             */
-/*   Updated: 2020/09/14 17:51:10 by ggeri            ###   ########.fr       */
+/*   Updated: 2020/09/20 18:19:06 by ggeri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 static int	h1_u_i_high(t_arg *r, int base, int sum)
 {
+	if (r->num > r->wiedth && r->wiedth - sum > 0 && r->ull != 0)
+		return (h1_u_i_high2(r, base, sum));
+	if (r->num > r->wiedth && r->ull == 0 && r->num != 0 && r->wiedth != 0)
+		return (h1_u_i_high3(r, sum));
 	if (r->wiedth > r->num)
 		r->num = r->wiedth;
 	if (r->hsh == 1 && *(r->fmt + 1) == 'X' && r->wiedth != 0)
@@ -21,8 +25,11 @@ static int	h1_u_i_high(t_arg *r, int base, int sum)
 	while (r->num - sum + check_hash_help(r) > 0 && (*(r->fmt + 1) == 'X') \
 	&& r->num != r->wiedth)
 		sum += ft_putchar(' ');
+	while (r->num - sum > 0 && (*(r->fmt + 1) == 'X') && \
+	r->num == r->wiedth && r->hsh == 0)
+		sum += ft_putchar('0');
 	while (r->num - sum + 2 > 0 && (*(r->fmt + 1) == 'X') && \
-	r->num == r->wiedth)
+	r->num == r->wiedth && r->hsh == 1)
 		sum += ft_putchar('0');
 	if (r->hsh == 1 && *(r->fmt + 1) == 'X' && r->wiedth == 0)
 		sum += ft_print_hash(r);
@@ -60,6 +67,8 @@ static int	m_s_u_i_high(t_arg *r, int base, int sum)
 	int		i;
 
 	i = 0;
+	if (r->num > r->wiedth && r->num != 0 && r->wiedth != 0)
+		return (m_s_u_i_high2(r, base, sum));
 	i += ft_print_hash(r);
 	if (r->wiedth > r->num && r->minus2 == 0)
 	{
@@ -78,6 +87,8 @@ static int	m_s_u_i_high(t_arg *r, int base, int sum)
 
 static int	min_shorter_u_i_high(t_arg *r, int base, int sum)
 {
+	if (r->num != 0 && r->wiedth == 0 && r->ull == 0)
+		return (ft_size_print_minus(r, 0));
 	if (r->wiedth != -1)
 		return (m_s_u_i_high(r, base, sum));
 	if (r->hsh == 1)

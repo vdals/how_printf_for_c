@@ -6,7 +6,7 @@
 /*   By: ggeri <ggeri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/28 13:36:55 by ggeri             #+#    #+#             */
-/*   Updated: 2020/09/15 20:24:38 by ggeri            ###   ########.fr       */
+/*   Updated: 2020/09/20 18:43:34 by ggeri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ static void	obnulenie2036(t_arg *r)
 	r->precision = 6;
 	r->wiedth = -1;
 	r->point = 0;
+	r->star = 0;
+	r->und_beh = 0;
+	r->counter = 0;
 }
 
 static void	random_flags_check(t_arg *r, va_list ap)
@@ -47,9 +50,11 @@ static void	random_flags_check(t_arg *r, va_list ap)
 		else if (*(r->fmt + 1) == '-')
 			r->minus = ft_check_minus(r);
 		else if (*(r->fmt + 1) == '*')
-			r->num = ft_check_star(ap, r);
+			r->star = ft_check_star(ap, r);
 		else if (*(r->fmt + 1) == '.')
 			ft_check_wiedth(r);
+		else
+			r->und_beh = ft_check_undefined_behavior(r);
 	}
 }
 

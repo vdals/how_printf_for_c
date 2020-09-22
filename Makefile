@@ -6,7 +6,7 @@
 #    By: ggeri <ggeri@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/28 13:36:39 by ggeri             #+#    #+#              #
-#    Updated: 2020/09/12 15:46:08 by ggeri            ###   ########.fr        #
+#    Updated: 2020/09/20 20:54:20 by ggeri            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,10 +18,10 @@ FLAGS = -Wall -Wextra -Werror -c
 
 # functions
 FUNC = math_1 ft_print_base ft_get_format ft_shorter \
-	ft_hashnco ft_shorter_high size_print ft_atoi ft_strdup ft_printf \
-	print_symb ft_strlen ft_shorter_int ft_get_format_int \
-	ft_hashnco2 float ft_shorter_float ft_ltoa ft_putchar \
-	
+	ft_hashnco ft_shorter_high ft_shorter_high2 size_print ft_atoi ft_strdup \
+	ft_printf print_symb ft_strlen ft_shorter_int ft_get_format_int \
+	ft_hashnco2 float ft_shorter_float ft_ltoa ft_putchar ft_shorter_int2 \
+	print_symb2 print_symb3 ft_shorter2 ft_shorter3 ft_length_of_num
 
 # functions with .c
 FUNC_C = $(patsubst %, %.c, $(FUNC))

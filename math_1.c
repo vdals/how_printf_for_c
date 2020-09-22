@@ -6,15 +6,15 @@
 /*   By: ggeri <ggeri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/28 15:33:05 by ggeri             #+#    #+#             */
-/*   Updated: 2020/09/05 19:33:50 by ggeri            ###   ########.fr       */
+/*   Updated: 2020/09/20 21:01:43 by ggeri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ftprintf.h"
 
-int			ft_pow(int x, unsigned int y)
+int						ft_pow(int x, unsigned int y)
 {
-	int		i;
+	int					i;
 
 	if (y == 0)
 		return (1);
@@ -25,50 +25,9 @@ int			ft_pow(int x, unsigned int y)
 		return (x * i * i);
 }
 
-int			length_of_num(unsigned long long int i, int base)
+void					print_base_i(long long num, long long base)
 {
-	int		length;
-
-	length = 0;
-	if (i == 0)
-		return (1);
-	if (i < 0)
-	{
-		i *= -1;
-		length++;
-	}
-	while (i > 0)
-	{
-		i /= base;
-		length++;
-	}
-	return (length);
-}
-
-int			length_of_num_i(long long int i, int base)
-{
-	int		length;
-
-	length = 0;
-	if (i == 0)
-		return (1);
-	if (i < 0)
-	{
-		i *= -1;
-		length++;
-	}
-	while (i > 0)
-	{
-		i /= base;
-		length++;
-	}
-	return (length);
-}
-
-void		print_base_i(long long num, long long base)
-{
-	long long	num1;
-
+	long long			num1;
 
 	if (num < 0)
 		num *= -1;
@@ -84,11 +43,10 @@ void		print_base_i(long long num, long long base)
 		ft_putchar('a' + num1 - 10);
 }
 
-void		print_base_high(unsigned long long num,\
-										 unsigned long long base)
+void					print_base_high(unsigned long long num, \
+unsigned long long base)
 {
 	unsigned long long	num1;
-
 
 	if (num < 0)
 		num *= -1;
@@ -104,11 +62,10 @@ void		print_base_high(unsigned long long num,\
 		ft_putchar('A' + num1 - 10);
 }
 
-void		print_base(unsigned long long num,\
-										 unsigned long long base)
+void					print_base(unsigned long long num, \
+unsigned long long base)
 {
 	unsigned long long	num1;
-
 
 	if (num < 0)
 		num *= -1;

@@ -6,12 +6,13 @@
 /*   By: ggeri <ggeri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/28 13:58:47 by ggeri             #+#    #+#             */
-/*   Updated: 2020/09/15 20:24:54 by ggeri            ###   ########.fr       */
+/*   Updated: 2020/09/20 20:44:50 by ggeri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h> //lib for help, delete before project completion
 #include "ftprintf.h"
-/*#include "ft_printf.c"
+#include "ft_printf.c"
 #include "print_symb.c"
 #include "math_1.c"
 #include "ft_print_base.c"
@@ -29,7 +30,13 @@
 #include "float.c"
 #include "ft_shorter_float.c"
 #include "ft_ltoa.c"
-#include "ft_putchar.c"*/
+#include "ft_putchar.c"
+#include "ft_shorter_high2.c"
+#include "ft_shorter_int2.c"
+#include "print_symb2.c"
+#include "print_symb3.c"
+#include "ft_shorter2.c"
+#include "ft_shorter3.c"
 
 int			main(void)
 {
@@ -40,10 +47,10 @@ int			main(void)
 
 	int		check1 = 2147483647;
 
-	check = printf("@moulitest: %.10d\n", -42);
-	printf("%i\n", check);
-	check = ft_printf("@moulitest: %.10d\n", -42);
-	printf("%i\n", check);
+	// check = printf("@moulitest: %.10d\n", -42);
+	// printf("%i\n", check);
+	// check = ft_printf("@moulitest: %.10d\n", -42);
+	// printf("%i\n", check);
 
 	printf(MAGENTA "\n --- TEST#01 --- \n\n" RESET);
 	check = printf(CYAN"expected:hello %% %#1% %5 c, %  010  s, %lx, %030p %2% %10s.\n"RESET, 'f', "hello", ptr0, ptr0, NULL);
@@ -225,10 +232,8 @@ int			main(void)
 	printf("check:%i\n", check);
 	check = ft_printf("_%.o_%.0o_\n", 0, 0);
 	printf(RED"check:%i\n"RESET, check);
-
 	ft_printf("_%-10.5o_\n", 2500);
 	printf("_%-10.5o_\n", 2500);
-
 	check = printf("%.2s is a string\n", "this");
 	printf("check:%i\n", check);
 	check = ft_printf("%.2s is a string\n", "this");
@@ -249,27 +254,95 @@ int			main(void)
 	printf("check:%i\n", check);
 	check = ft_printf("%-5.2s is a string\n", "");
 	printf(RED"check:%i\n"RESET, check);
-	printf("\n\n\n\n\n\n");
-
-	check = printf("%.2c", NULL);
-	printf("check:%i\n", check);
-	check = ft_printf("%.2c", NULL);
-	printf(RED"check:%i\n"RESET, check);
-	printf("\n\n\n\n\n\n");
+	// check = printf("%.2c", NULL);
+	// printf("check:%i\n", check);
+	// check = ft_printf("%.2c", NULL);
+	// printf(RED"check:%i\n"RESET, check);
 	check = printf("\0");
 	printf("check:%i\n", check);
 	check = ft_printf("\0");
 	printf(RED"check:%i\n"RESET, check);
+	check = printf("%23lld\n", -9223372036854775808);
+	printf("check:%i\n", check);
+	check = ft_printf("%23lld\n", -9223372036854775808);
+	printf(RED"check:%i\n"RESET, check);
+	check = printf("%#o\n", 0);
+	printf("check:%i\n", check);
+	check = ft_printf("%#o\n", 0);
+	printf(RED"check:%i\n"RESET, check);
+	check = printf("%.5c\n", 42);
+	printf("check:%i\n", check);
+	check = ft_printf("%.5c\n", 42);
+	printf(RED"check:%i\n"RESET, check);
+	check = printf("%.5p, %.p\n", 0, 0);
+	printf("check:%i\n", check);
+	check = ft_printf("%.5p, %.p\n", 0, 0);
+	printf(RED"check:%i\n"RESET, check);
+	check = printf("%9.2p\n", 1234);
+	printf("check:%i\n", check);
+	check = ft_printf("%9.2p\n", 1234);
+	printf(RED"check:%i\n"RESET, check);
+	check = printf("%#.o\n", 42);
+	printf("check:%i\n", check);
+	check = ft_printf("%#.o\n", 42);
+	printf(RED"check:%i\n"RESET, check);
+	check = printf("%05.*d_\n", -15, 42);
+	printf("check:%i\n", check);
+	check = ft_printf("%05.*d_\n", -15, 42);
+	printf(RED"check:%i\n"RESET, check);
+	check = printf("%05.-15d\n", 42);
+	printf("check:%i\n", check);
+	check = ft_printf("%05.-15d\n", 42);
+	printf(RED"check:%i\n"RESET, check);
+	check = printf("{%*d}\n", -5, 42);
+	printf("check:%i\n", check);
+	check = ft_printf("{%*d}\n", -5, 42);
+	printf(RED"check:%i\n"RESET, check);
 
+	check = printf("{%.*s}\n", -5, "42");
+	printf("check:%i\n", check);
+	check = ft_printf("{%.*s}\n", -5, "42");
+	printf(RED"check:%i\n"RESET, check);
 
-	// manage minimum field-width (smth with printf("%*d", 6, number)); ask someone
-	// add precisin "int.int"
+	printf("%.4X\n", 42);
+	ft_printf("%.4X\n", 42);
+	printf("%#15.4x\n", 42);
+	ft_printf("%#15.4x\n", 42);
+	check = printf("{%*d}\n", -5, 42);
+	printf("check:%i\n", check);
+	check = ft_printf("{%*d}\n", -5, 42);
+	printf(RED"check:%i\n"RESET, check);
+	check = printf("{%*d}\n", -5, 42);
+	printf("check:%i\n", check);
+	check = ft_printf("{%*d}\n", -5, 42);
+	printf(RED"check:%i\n"RESET, check);
+
+	check = printf("%-10.8s", NULL);
+	printf("check:%i\n", check);
+	check = ft_printf("%-10.8s", NULL);
+	printf(RED"check:%i\n"RESET, check);
+
+	check = printf("%-5.0x_\n", 0);
+	printf("check:%i\n", check);
+	check = ft_printf("%-5.0x_\n", 0);
+	printf(RED"check:%i\n"RESET, check);
+	// check = printf("%-5.0X_\n", 0);
+	// printf("check:%i\n", check);
+	// check = ft_printf("%-5.0X_\n", 0);
+	// printf(RED"check:%i\n"RESET, check);
+	check = printf("%.*s_\n", -3, "hello");
+	printf("check:%i\n", check);
+	check = ft_printf("%.*s_\n", -3, "hello");
+	printf(RED"check:%i\n"RESET, check);
+	check = printf("%.*p_\n", -3, 0);
+	printf("check:%i\n", check);
+	check = ft_printf("%.*p_\n", -3, 0);
+	printf(RED"check:%i\n"RESET, check);
+
 
 	// 868/4219 -> 870/4219 -> 902/4219 -> 1078/4219 -> 1090/4219 -> 1287/4219 ->1596/4219 -> 1744/4219 in pft checker
-	// split: ft_print_symb2+ft_print_ptr (print_symb.c) (poka ne nado)    h1_u_i(ft_shorter.c)
-	// check strings
-	// check nonprint as hex wtf
-
+	ft_printf("% Z%s\n", "test");
+  	ft_printf("%jx\n", 1582);
 	free(ptr0);
 	free(ptr1);
 	return (0);

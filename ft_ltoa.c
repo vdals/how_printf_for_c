@@ -6,13 +6,13 @@
 /*   By: ggeri <ggeri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 18:06:48 by ggeri             #+#    #+#             */
-/*   Updated: 2020/09/13 16:07:04 by ggeri            ###   ########.fr       */
+/*   Updated: 2020/09/16 15:53:06 by ggeri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ftprintf.h"
 
-static char	*ft_fillmynbr(char *s, long nb, int size)
+static char	*ft_fillmynbr(char *s, long long nb, int size)
 {
 	if (nb < 0)
 	{

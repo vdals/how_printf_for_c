@@ -59,13 +59,18 @@ static int		ft_ldtoa(t_arg *r, int sum)
 	r->head = (long)(r->ldd);
 	r->tail = r->ldd - (long double)(r->head);
 	r->l1 = length_of_num_i(r->head, 10);
-	r->i_h = (long)((r->tail) * ft_pow(10, r->precision));
-	if (r->i_h < 1)
+	r->i_h = ABS((long)((r->tail) * ft_pow(10, r->precision)));
+	if (r->i_h == 1)
 	{
 		r->tail = 0;
 		r->l2 = r->precision;
 	}
-	else
+	else if (r->precision < length_of_num_i(r->head, 10))
+	{
+		r->tail = r->i_h;
+		r->l2 = r->precision;
+	}
+	else if (r->i_h != 0)
 	{
 		r->tail = ((9 * (r->i_h / ABS(r->i_h)) + r->i_h) / 10) * 10;
 		r->l2 = r->precision;
